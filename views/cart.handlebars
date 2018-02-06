@@ -1,0 +1,42 @@
+<div class="container">
+
+  {{#if products}}
+  <div class="row">
+    <div>
+        <ul class="list-group">
+          {{#each products}}
+          <li class="list-group-item">
+
+            <strong>{{ this.item.title }}</strong>
+            <span class="label label-success">${{ this.price }}</span>
+            <div class="pull-right">
+              <span class="label label-success"> Total Qty : {{ this.qty }}</span>
+            </div>
+          </li>
+          {{/each}}
+        </ul>
+    </div>
+    <div class="col-sm">
+      <div style="padding:10px; font-size:16px;">
+        <span class="label label-default" style="padding:10px;"><strong>Total: ${{ totalPrice }}</strong></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="row">
+    <div class="te">
+      <strong>Total : {{ totalPrice }}</strong>
+    </div>
+  </div> -->
+  <div>
+    <div class="text-center" style="margin-top:16px;">
+      <a href="/users/checkout" type="button" name="button" class="btn btn-success">Checkout</a>
+    </div>
+  </div>
+  {{ else }}
+  <div class="row text-center">
+    <h3 class="text-center">No Items in the Cart</h3>
+    <a href="/" class="btn btn-success">Click here To add Products</a>
+  </div>
+  {{/if}}
+</div>

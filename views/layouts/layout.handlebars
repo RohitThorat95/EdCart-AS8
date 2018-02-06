@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Ed-Shop</title>
+	<link rel="stylesheet" href="/css/bootstrap.css" />
+	<script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+	<div>
+      <div class="header clearfix" >
+        <nav class="navbar navbar-fixed-top" style="background-color:black;">
+          <ul class="nav nav-pills pull-right">
+            {{#if user}}
+              <li role="presentation"><a href="/"><i class="fas fa-home"></i> Dashboard</a></li>
+              <li role="presentation"><a href="/users/cart"><i class="fas fa-shopping-bag"></i> Cart <span class="badge">{{session.cart.totalQty}}</span></a></li>
+              <li role="presentation"><a href="/users/logout"><i class="fas fa-shopping-cart"></i> Logout</a></li>
+            {{else}}
+              <li role="presentation"><a href="/users/login"><i class="fas fa-shopping-cart"></i> Login</a></li>
+              <li role="presentation"><a href="/users/register"><i class="fas fa-shopping-cart"></i> Register</a></li>
+            {{/if}}
+          </ul>
+        </nav>
+        <h4><i class="fas fa-shopping-cart"></i> Ed-Shop</h4>
+      </div>
+
+
+      <div class="row">
+				<div class="col-lg-12">
+					<div class="container">
+
+          {{#if success_msg}}
+            <div class="alert alert-success">{{success_msg}}</div>
+          {{/if}}
+
+          {{#if error_msg}}
+            <div class="alert alert-danger">{{error_msg}}</div>
+          {{/if}}
+
+          {{#if error}}
+            <div class="alert alert-danger">{{error}}</div>
+          {{/if}}
+					</div>
+
+          {{{body}}}
+				</div>
+			</div>
+		</div> <!-- /container -->
+
+		<script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</body>
+</html>
